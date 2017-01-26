@@ -649,11 +649,21 @@ public class AddressBook {
         System.out.print(LINE_PREFIX + "Enter command: ");
         String inputLine = SCANNER.nextLine();
         // silently consume all blank and comment lines
-        while (inputLine.trim().isEmpty() || inputLine.trim().charAt(0) == INPUT_COMMENT_MARKER) {
+        while (isBlankLineOrComment(inputLine)) {
             inputLine = SCANNER.nextLine();
         }
         return inputLine;
     }
+    
+    /**
+     * Checks if input is a blank line or comment
+     *
+     * @param inputLine user input string
+     * @return true if user input is a blank line or comment
+     */
+	private static boolean isBlankLineOrComment(String inputLine) {
+		return inputLine.trim().isEmpty() || inputLine.trim().charAt(0) == INPUT_COMMENT_MARKER;
+	}
 
    /*
     * NOTE : =============================================================
