@@ -391,6 +391,7 @@ public class AddressBook {
     /**
      * Splits raw user input into command word and command arguments string
      *
+     * @param rawUserInput raw input from user
      * @return  size 2 array; first element is the command type and second element is the arguments string
      */
     private static String[] splitCommandWordAndArgs(String rawUserInput) {
