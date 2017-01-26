@@ -522,13 +522,23 @@ public class AddressBook {
     private static ArrayList<String[]> getPersonsWithNameContainingAnyKeyword(Collection<String> keywords) {
         final ArrayList<String[]> matchedPersons = new ArrayList<>();
         for (String[] person : getAllPersonsInAddressBook()) {
-            final Set<String> wordsInName = new HashSet<>(splitByWhitespace(getNameFromPerson(person)));
+            final Set<String> wordsInName = generateWordsInNameSet(person);
             if (!Collections.disjoint(wordsInName, keywords)) {
                 matchedPersons.add(person);
             }
         }
         return matchedPersons;
     }
+
+    /**
+     * Generates HashSet containing separate words in a person's name
+     *
+     * @param person's name
+     * @return HashSet containing separate words in a person's name
+     */
+	private static HashSet<String> generateWordsInNameSet(String[] person) {
+		return new HashSet<>(splitByWhitespace(getNameFromPerson(person)));
+	}
 
     /**
      * Deletes person identified using last displayed index.
