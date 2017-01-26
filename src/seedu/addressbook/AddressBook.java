@@ -518,7 +518,7 @@ public class AddressBook {
      * @return set of keywords as specified by args
      */
     private static Set<String> extractKeywordsFromFindPersonArgs(String findPersonCommandArgs) {
-        return new HashSet<>(splitByWhitespace(findPersonCommandArgs.trim()));
+        return new HashSet<>(splitByWhitespace(findPersonCommandArgs.trim().toLowerCase()));
     }
 
     /**
@@ -545,7 +545,7 @@ public class AddressBook {
      * @return HashSet containing separate words in a person's name
      */
 	private static HashSet<String> generateWordsInNameSet(String[] person) {
-		return new HashSet<>(splitByWhitespace(getNameFromPerson(person)));
+		return new HashSet<>(splitByWhitespace(getNameFromPerson(person).toLowerCase()));
 	}
 
     /**
