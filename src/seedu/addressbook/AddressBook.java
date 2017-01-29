@@ -210,13 +210,17 @@ public class AddressBook {
         showWelcomeMessage();
         processProgramArgs(args);
         loadDataFromStorage();
-        while (true) {
+        executeProgramme();
+    }
+
+	private static void executeProgramme() {
+		while (true) {
             String userCommand = getUserInput();
             echoUserCommand(userCommand);
             String feedback = executeCommand(userCommand);
             showResultToUser(feedback);
         }
-    }
+	}
 
     /*
      * NOTE : =============================================================
